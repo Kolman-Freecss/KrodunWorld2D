@@ -47,3 +47,6 @@ TagManager:
   - name: PlatformsTiles
     uniqueID: 586422323
     locked: 0
+  - name: Player
+    uniqueID: 2584777797
+    locked: 0
