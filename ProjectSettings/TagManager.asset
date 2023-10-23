@@ -14,9 +14,9 @@ TagManager:
   - 
   - 
   - 
+  - GroundTiles
   - 
-  - 
-  - 
+  - Background
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1644481547
+    locked: 0
+  - name: PlatformsTiles
+    uniqueID: 586422323
     locked: 0
