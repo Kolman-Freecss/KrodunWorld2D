@@ -12,6 +12,8 @@ namespace Kolman_Freecss.KrodunWorld2D
         CapsuleCollider2D myBodyCollider;
 
         private KrodunInputs _krodunInputs;
+        
+        private int _animIDRun;
 
         void Start()
         {
@@ -19,6 +21,7 @@ namespace Kolman_Freecss.KrodunWorld2D
             myAnimator = GetComponent<Animator>();
             myBodyCollider = GetComponent<CapsuleCollider2D>();
             _krodunInputs = GetComponent<KrodunInputs>();
+            AssignAnimationIds();
         }
 
         void Update()
@@ -26,10 +29,18 @@ namespace Kolman_Freecss.KrodunWorld2D
             Run();
         }
         
+        void AssignAnimationIds()
+        {
+            _animIDRun = Animator.StringToHash("isRunning");
+        }
+        
         void Run()
         {
             Vector2 playerVelocity = new Vector2(_krodunInputs.move.x * moveSpeed, myRigidBody.velocity.y);
             myRigidBody.velocity = playerVelocity;
+            
+            bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+            myAnimator.SetBool(_animIDRun, playerHasHorizontalSpeed);
         }
         
     }

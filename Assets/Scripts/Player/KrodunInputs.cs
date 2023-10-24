@@ -9,6 +9,7 @@ namespace Kolman_Freecss.KrodunWorld2D
         #region Inspector Variables
 
         [Header("Character Input Values")] public Vector2 move;
+        public bool isJumping;
 
         #endregion
 
@@ -18,6 +19,11 @@ namespace Kolman_Freecss.KrodunWorld2D
         {
             MoveInput(value.Get<Vector2>());
         }
+        
+        public void OnJump(InputValue value)
+        {
+            JumpInput(value.isPressed);
+        }
 
         #endregion
 
@@ -26,6 +32,11 @@ namespace Kolman_Freecss.KrodunWorld2D
         public void MoveInput(Vector2 newMoveDirection)
         {
             move = newMoveDirection;
+        }
+        
+        public void JumpInput(bool newJumpState)
+        {
+            isJumping = newJumpState;
         }
 
         #endregion
