@@ -27,11 +27,21 @@ namespace Kolman_Freecss.KrodunWorld2D
         void Update()
         {
             Run();
+            FlipSprite();
         }
         
         void AssignAnimationIds()
         {
             _animIDRun = Animator.StringToHash("isRunning");
+        }
+        
+        void FlipSprite()
+        {
+            bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+            if (playerHasHorizontalSpeed)
+            {
+                transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
+            }
         }
         
         void Run()
